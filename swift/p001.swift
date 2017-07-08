@@ -13,6 +13,11 @@ extension Int {
     }
 }
 
+func sumOfMultiples(of factor: Int, bound: Int) -> Int {
+    let countOfMultiples = (bound - 1)/factor
+    let sum = (countOfMultiples * (countOfMultiples + 1))/2
+    return sum * factor
+}
 
-
-print((1..<1000).filter( { $0.isMultiple(of: 3) || $0.isMultiple(of: 5) }).reduce(0, +))
+let answer = sumOfMultiples(of: 3, bound: 100) + sumOfMultiples(of: 5, bound: 100) - sumOfMultiples(of: 15, bound: 100)
+print(answer)

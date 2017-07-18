@@ -34,5 +34,24 @@ func largestPrimeFactor(of product: Int) -> Int? {
 
 }
 
-print(largestPrimeFactor(of: 600851475143))
+func largestPrimeFactor2(of product: Int) -> Int? {
+    var temp = product
+    var primeList = primes(upTo: 10000)
+    var prime: Int = 0
+    
+    while primeList.count > 0 {
+        prime = primeList.removeFirst()
+        while temp % prime == 0 {
+            temp = temp / prime
+        }
+        
+        if temp == 1 {
+            return prime
+        }
+    }
+    
+    return nil
+}
+
+print(largestPrimeFactor2(of: 600851475143))
 
